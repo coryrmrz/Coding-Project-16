@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//Task 2: Create the App component
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, {useState} from "react"; //import React and useState
+import ProductList from "./ProductList"; //import ProductList component
+import './App.css' //import App.css for styling
+import AddProductForm from "./AddProductForm"; //import AddProductForm component
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App = () => { //Define App as a functional component
+  const initialProducts = [ //array of objects with with product inforation
+    {id: 1, name: "Blush", price: 12, description: "Pink blush palette with 6 colors"}, //Blush array
+    {id: 2, name: "Lipstick", price: 10, description: "One ruby red lipstick tube"}, //Lipstick array
+    {id: 3, name: "Foundation", price: 8, description: "One ivory neutral foundation tube"}, //Foundation array
+  ];
 
-export default App
+  const [products, setProducts] = useState(initialProducts); //products holds list, setProducts updates list
+
+
+  const addProduct = (newProduct) => { //function adds new product to the list
+    setProducts([...products, {...newProduct, id: products.length + 1}]); //new product gets ID based on legth of products array +1
+  }
+
+  return ( //return JSX structure
+    <div>
+      <h1>Product Dashboard</h1>
+      <ProductList products={products}/>
+      <AddProductForm addProduct={addProduct}/>
+    </div>
+  );
+};
+
+export default App; //export Aapp component to be used in other parts of the app
