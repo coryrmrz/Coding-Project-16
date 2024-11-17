@@ -17,7 +17,7 @@ const App = () => { //Define App as a functional component
   const addProduct = (newProduct) => { //function adds new product to the list
     setProducts([...products, {...newProduct, id: products.length + 1}]); //new product gets ID based on legth of products array +1
   }
-  return ( //return JSX structure
+  return ( //return JSX structure for products and add products
     <div>
       <h1>Product Dashboard</h1>
       <ProductList products={products}/>
