@@ -12,6 +12,8 @@ const App = () => { //Define App as a functional component
     {id: 3, name: "Foundation", price: 8, description: "One ivory neutral foundation tube"}, //Foundation array
   ];
   const [products, setProducts] = useState(initialProducts); //products holds list, setProducts updates list
+
+  //Task 7: Pass Data Between Components
   const addProduct = (newProduct) => { //function adds new product to the list
     setProducts([...products, {...newProduct, id: products.length + 1}]); //new product gets ID based on legth of products array +1
   }

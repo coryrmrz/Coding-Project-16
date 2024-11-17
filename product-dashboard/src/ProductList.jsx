@@ -1,6 +1,8 @@
+//Task 3: Create ProductList Component
 import React from 'react' //Import React to define component
 import ProductItem from './ProductItem.jsx' //Import ProductItem component to display products
 
+//Task 5: Create keys in ProductList Component
 const ProductList = ({ products }) => { //Define Productlist component
     return ( //return html to show unique key for each product 
         <div>

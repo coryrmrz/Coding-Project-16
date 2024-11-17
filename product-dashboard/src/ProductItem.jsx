@@ -1,3 +1,4 @@
+//Task 4: Create ProductItem Component
 import React from 'react' //Import react to define component
 
 const ProductItem = ({ product }) => { //Define ProductItem component
